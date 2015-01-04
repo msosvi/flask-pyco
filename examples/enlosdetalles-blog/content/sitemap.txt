@@ -1,0 +1,8 @@
+---
+Title: sitemap.txt
+template: none
+---
+
+{%- for p in site.pages -%}
+    {{ p.url }}
+{% endfor %}

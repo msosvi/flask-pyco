@@ -1,0 +1,21 @@
+markdown_ext: .md
+html_ext : .html
+order_pages_by: date
+theme: enlosdetalles
+
+development: true
+reverse_order: true
+
+
+# Themes are encouraged to use these universal variables
+# so be sure to set them if your theme uses them.
+#
+site:
+  title: En Los Detalles...
+  author:
+    name: Miguel Angel Sosvilla Luis
+    email: msosvi@gmail.com
+    github: msosvi
+    twitter: msosvi
+    feedburner: feedname
+  max_posts_in_index: 3

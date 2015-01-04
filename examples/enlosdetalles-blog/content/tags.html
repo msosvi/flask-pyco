@@ -1,0 +1,25 @@
+---
+template: page
+title: Etiquetas
+---
+
+{% if tag is defined %}
+    {% set tags = tag %}
+{% else %}
+    {% set tags = site.tags %}
+{% endif %}
+
+{% for tag in tags %}
+  <div class="grid">
+	<div id="{{ tag }}-ref" class="col-3-12">
+  		<h3 >{{ tag }} ({{ site.tags[tag]|length }})</h3>
+  	</div>
+  	<div class="col-9-12">
+  		<ul>
+            {% for page in site.tags[tag] %}
+  		  	<li><a href="/{{ page.url }}">{{page.title}}</a></li>
+            {% endfor %}
+  		</ul>
+  	</div>
+  </div>
+{% endfor %}

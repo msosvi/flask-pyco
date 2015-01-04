@@ -1,0 +1,400 @@
+@highlight_color: #F20021;
+
+body {
+    font-family: 'Georgia',serif;
+    font-size: 16px;
+}
+
+a:link {
+    color: @highlight_color;
+    text-decoration: none;
+}
+
+a:visited {
+    color: @highlight_color;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a img {
+    border-width: 0;
+}
+
+p,li {
+
+    font-size: 1.125em;
+	line-height: 1.5em;
+
+	code {
+        background-clip: padding-box;
+        background-color: #F8F8F8;
+        border: 1px solid #CCCCCC;
+        border-radius: 3px 3px 3px 3px;
+        margin: 0 2px;
+        padding: 2px 5px;
+        white-space: nowrap;
+        font-size: 0.8em;
+    }
+}
+
+
+
+h1, h2, h3, h4, h5 , h6 {
+	font-family: 'Droid Serif','Georgia';
+}
+
+q {
+	font-style:italic;
+}
+
+
+pre:not(.line-pre) {
+    background-clip: padding-box;
+    background-color: #F8F8F8;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px 3px 3px 3px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 1.625em;
+    overflow: auto;
+    padding: 1em;
+    font-family: "Bitstream Vera Sans Mono","Courier New",Courier,monospace;
+    font-size: 1em;
+	line-height: 1.4em;
+}
+
+
+#header {
+
+    a {
+	    color:black;
+    	text-decoration: none;
+    }
+
+    #logo {
+        display:inline-block;
+
+        a {
+            display:block;
+            background-repeat: no-repeat;
+        }
+    }
+
+
+    #title{
+        display:inline-block;
+        #site_title {
+            padding: 0px;
+           	margin: 0px;
+        }
+
+        p {
+            margin: 0;
+            padding: 0;
+
+            code{
+             margin:0;
+            }
+        }
+    }
+
+}
+
+#content img{
+    /* Center image*/
+    display: block;
+    margin: 0 auto;
+    padding:5px;
+    /* Image responsive*/
+    height: auto;
+    max-width: 100%;
+}
+
+
+/*Estilos comunes para el tamaño mediano y grande*/
+@media (min-width: 768px){
+    #header {
+
+        background-color: #FBFBFB;
+        border-bottom: 1px solid #DADADA;
+
+        .wrapper{
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        #logo {
+            vertical-align:middle;
+            margin-right:10px;
+
+            a {
+                background-image: url("../img/large_logo.png");
+            }
+        }
+
+
+        #title {
+            vertical-align:middle;
+        }
+    }
+}
+
+
+@media (min-width: 980px) {
+
+    .post-title, .page-title {
+        font-size: 1.9em;
+    }
+
+    #header {
+
+        .wrapper{
+            max-width: 740px;
+        }
+
+        #logo {
+
+            a {
+                width:155px;
+                height:146px;
+            }
+        }
+
+        #title {
+            #site_title {
+               	font-size:55px;
+            }
+
+            #site_motto{
+                 font-size: 20px;
+            }
+        }
+    }
+}
+
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+
+    .post-title, .page-title {
+        font-size: 1.6em;
+    }
+
+    #header {
+
+        .wrapper{
+            max-width: 655px;
+        }
+
+
+        #logo {
+
+            a {
+                background-size:126px 119px;
+                width:126px;
+                height:119px;
+            }
+        }
+
+
+        #title{
+            #site_title {
+               	font-size:45px;
+            }
+
+            #site_motto{
+               font-size: 18px;
+            }
+        }
+    }
+}
+
+
+/* Landscape phones and down */
+@media (max-width: 767px){
+
+    p,li {
+	    font-size: 1em;
+    }
+
+    .post-title, .page-title {
+        font-size: 1.5em;
+    }
+
+    pre:not(.line-pre) {
+        font-size: 0.9em;
+    }
+
+    #header {
+
+        height: 56px;
+        left: 0;
+        position: fixed;
+        top: 0;
+        width:767px;
+
+        background-color: white;
+
+        .wrapper{
+            height: 55px;
+            padding:3px;
+            background-color: #FBFBFB;
+            border-bottom: 1px solid #DADADA;
+        }
+
+
+        #logo {
+            vertical-align:top;
+            margin-right: 6px;
+
+            a {
+                background-image: url("../img/small_logo.png");
+                width:52px;
+                height:49px;
+            }
+
+        }
+
+        #title {
+            vertical-align:middle;
+
+            #site_title {
+               	font-size:24px;
+            }
+
+            #site_motto {
+                font-size: 10px;
+            }
+
+        }
+    }
+
+    #content {
+        margin-top:30px;
+    }
+}
+
+@media (max-width: 425px) {
+  #site_motto code:before {
+    content: "Un blog sobre desarrollo de software";
+ }
+}
+
+@media (min-width: 426px) {
+ #site_motto code:before {
+    content: "-m \"Un blog sobre desarrollo de software y demás tics.\"";
+ }
+}
+
+
+.post-title, .page-title {
+	margin:5px 0;
+    display: inline-block;
+    width:100%;
+
+    a {
+    	color:black;
+    }
+
+}
+
+
+.post-info {
+    color: #666666;
+    margin-left: 10px;
+    font-size: 0.85em;
+}
+
+.post-content {
+     blockquote {
+    	font-style:italic;
+    	padding-left:10px;
+    	border-left:2px solid #666666;
+    	color:#3E3636;
+    }
+
+    .autor-cita{
+    	text-align: right;
+    	color:#3E3636;
+    }
+}
+
+.separator{
+    border-bottom: 1px solid #ffebeb;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+#foot {
+    background-color: #ffebeb;
+    color: #3E3636;
+    padding: 0.5em 20px;
+
+
+    .pagination {
+    	text-align:center;
+    }
+
+    .backToTop {
+    	float:right;
+    }
+
+}
+
+
+#footer {
+    background-color: #3e3636;
+    color: rgb(250, 250, 250);
+    padding-bottom: 1.625em;
+
+
+    #profile{
+        .profile-img {
+            float: left;
+            margin: 0 5px 5px 0;
+        }
+    }
+
+    #tags{
+        padding-left:20px;
+    }
+
+    .licence{
+    	float: right;
+    	font-weight:bold;
+    }
+
+}
+
+#tag-cloud{
+    a{
+        color: rgb(250, 250, 250);
+    }
+
+    a:hover{
+    	color: red;
+    }
+
+    .tag{
+    	margin: 5px;
+    	white-space: nowrap;
+    }
+}
+
+
+.gist {
+    .gist-file {
+        border: 1px solid #CCCCCC;
+        border-radius: 3px 3px 3px 3px;
+    }
+
+    .gist-data {
+        font-size: 90% !important;
+    	background-clip: padding-box;
+    	background-color: #F8F8F8 !important;
+    	padding: 1em;
+    }
+}

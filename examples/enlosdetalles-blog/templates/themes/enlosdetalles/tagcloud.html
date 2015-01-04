@@ -1,0 +1,46 @@
+{#
+jekyll-tagcloud
+
+Copyright 2012 Miguel Angel Sosvilla Luis <msosvi@gmail.com>
+@license http://www.gnu.org/licenses/gpl-2.0.html
+
+This work is based on jekyll-tagcloud developed by enrmarc <enrmarc@gmail.com>
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+<div id="tag-cloud">
+    {% for tag in site.tags %}
+        <span class="tag tag-{{ loop.index }}"><a href="/tags/?tag={{tag}}">{{ tag }}</a></span>
+    {% endfor %}
+</div>
+
+<script type="text/javascript">
+	$(function() {
+        var minFont = 15.0,
+        maxFont = 40.0,
+        diffFont = maxFont - minFont,
+        size = 0;
+
+        max = Math.max({% for tag in site.tags -%}
+                {{(site.tags[tag]|length) }}{% if not loop.last %},{% endif %}
+            {%- endfor %})
+
+	{% for tag in site.tags %}
+		size = (Math.log({{ site.tags[tag]|length }}) / Math.log(max)) * diffFont + minFont;
+		$("#tag-cloud .tag-{{ loop.index  }}").css("font-size", size + "px");
+	{% endfor %}
+
+	});
+</script>

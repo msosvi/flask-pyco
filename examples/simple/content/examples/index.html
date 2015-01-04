@@ -1,0 +1,11 @@
+---
+title: Example Pages
+---
+
+<p>All the pages in the examples folder have the same category: 'examples'<p>
+
+<ul>
+    {% for p in site.categories['examples']  %}
+        <li><a href="/{{ p.url }}">{{ p.title }}</a> {% if p == page %} (this is me) {% endif %}</li>
+    {% endfor%}
+</ul>
