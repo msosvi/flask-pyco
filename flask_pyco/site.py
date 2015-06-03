@@ -16,7 +16,7 @@ class Site:
         mimetypes.init()
         self._create_logger(app)
         self._load_config(app,config_filename)
-        
+
         self.mistune_renderer = mistune_renderer
 
         if self.config.development:
@@ -81,15 +81,15 @@ class Site:
 
 
         #Sort all pages.
-        self.pages.sort(key=attrgetter('sort_key'), reverse=self.config.reverse_order)
+        self.pages.sort(reverse=self.config.reverse_order)
 
         #Sort pages with the same tag.
         for tag in self.tags:
-            self.tags[tag].sort(key=attrgetter('sort_key'), reverse=self.config.reverse_order)
+            self.tags[tag].sort(reverse=self.config.reverse_order)
 
         #Sort pages into categories.
         for category in self.categories:
-            self.categories[category].sort(key=attrgetter('sort_key'), reverse=self.config.reverse_order)
+            self.categories[category].sort(reverse=self.config.reverse_order)
 
         self.logger.info(" * Load site with %s pages and %s error pages from %s" % (len(self.pages),len(self.errors), contentdir))
 
@@ -129,8 +129,8 @@ class Site:
 
     def _catch_all(self,path):
         if self.config.development:
+            self.logger.debug (" * Development mode: reload site")
             self.find_all_pages()
-            self.logger.debug (" * Development mode: reload site with %s pages and %s error pages" % (len(self.pages),len(self.errors)))
 
         if path in self.urls:
             current_page = self.urls[path]

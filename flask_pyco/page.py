@@ -3,7 +3,7 @@ import yaml
 import re
 import os
 import mistune
-import utils
+from . import utils
 from datetime import time,date,datetime
 from flask import Markup,render_template_string
 
@@ -47,6 +47,14 @@ class Page:
         """Allows access to the page metadata by using the page instance"""
         return self.data[key]
 
+    def __lt__(self,other):
+        if (self.sort_key != None) and (other.sort_key != None):
+            return self.sort_key<other.sort_key
+
+        if (self.sort_key == None) and (other.sort_key != None):
+            return True
+
+        return False
 
     def is_markdown(self):
         """Returns true if the content page uses markdown"""
